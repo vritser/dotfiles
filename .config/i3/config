@@ -16,7 +16,7 @@ set $mod Mod4
 font pango:monospace 8
 
 exec_always fcitx
-exec_always sleep 1; xmodmap /home/man/.xmodmap
+exec_always xmodmap /home/man/.xmodmap
 exec_always compton
 exec_always variety
 
@@ -46,11 +46,15 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Control+h exec alacritty
+bindsym $mod+Control+j exec wmctrl -x -a emacs || emacs
+bindsym $mod+Control+k exec wmctrl -x -a google-chrome || google-chrome-stable
+bindsym $mod+Control+c exec wmctrl -x -a code-oss || code-oss
+bindsym $mod+Control+p exec wmctrl -x -a FoxitReader || foxitreader
+bindsym $mod+Control+m exec wmctrl -x -a jetbrains-idea || jetbrains-idea
 
-bindsym $mod+c exec google-chrome-stable
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Control+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -90,7 +94,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Control+i fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
