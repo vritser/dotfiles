@@ -14,6 +14,13 @@ super + ctrl + k
 
 super + ctrl + j
   wmctrl -x -a emacs || emacs
+
+super + ctrl + c
+  wmctrl -x -a code-oss || code-oss
+
+super + ctrl + m
+  wmctrl -x -a jetbrains-idea || idea
+
 # program launcher
 super + d
 	dmenu_run
