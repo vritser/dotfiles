@@ -43,20 +43,18 @@ hs.window.animationDuration = 0 -- don't waste time on animation when resize win
 -- Key to launch application.
 local key2App = {
     h = {'/Applications/iTerm.app', 'Chinese', 2},
-    j = {'/usr/local/Cellar/emacs-plus/HEAD-3a48ce4/Emacs.app', 'Chinese', 2},
+    j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'Chinese', 2},
     k = {'/Applications/Google Chrome.app', 'Chinese', 1},
     l = {'/System/Library/CoreServices/Finder.app', 'English', 1},
-    f = {'/Applications/Chromium.app', 'English', 1},
+    -- f = {'/Applications/Chromium.app', 'English', 1},
     c = {'/Applications/Visual Studio Code.app', 'Chinese', 2},
     w = {'/Applications/WeChat.app', 'Chinese', 1},
-    e = {'/Users/andy/fast-photo/node_modules/electron/dist/Electron.app', 'Chinese', 1},
-    a = {'/Applications/wechatwebdevtools.app', 'English', 2},
-    d = {'/Applications/Dash.app', 'English', 1},
+    -- d = {'/Applications/Dash.app', 'English', 1},
     s = {'/System/Applications/System Preferences.app', 'English', 1},
     p = {'/System/Applications/Preview.app', 'Chinese', 1},
-    b = {'/Applications/MindNode.app', 'Chinese', 1},
-    n = {'/Applications/NeteaseMusic.app', 'Chinese', 1},
-    m = {'/Applications/Sketch.app', 'English', 2},
+    -- b = {'/Applications/MindNode.app', 'Chinese', 1},
+    n = {'/Applications/DingTalk.app', 'Chinese', 1},
+    m = {'/Applications/IntelliJ IDEA.app', 'English', 2},
     q = {'/Applications/QQ.app', 'Chinese', 1},
 }
 
@@ -94,6 +92,7 @@ local maximizeApps = {
     "/Applications/Google Chrome.app",
     "/Applications/Chromium.app",
     "/System/Library/CoreServices/Finder.app",
+    '/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app'
 }
 
 local windowCreateFilter = hs.window.filter.new():setDefaultFilter()
@@ -114,7 +113,7 @@ local function Chinese()
 end
 
 local function English()
-    hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
+    hs.keycodes.currentSourceID("com.apple.keylayout.Dvorak")
 end
 
 -- Build better app switcher.

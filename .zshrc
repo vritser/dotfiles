@@ -5,6 +5,9 @@
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 # antigen apply
 
+# skip the verification of insecure directories
+ZSH_DISABLE_COMPFIX="true"
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -70,11 +73,10 @@ HISTCONTROL=ignorespace:erasedups
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump dirhistory osx git-extras docker imgcat)
-eval "$(lua ~/z.lua --init zsh)"
+plugins=(git dirhistory osx git-extras docker zsh-autosuggestions zsh-z)
+# eval "$(lua ~/z.lua --init zsh)"
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -109,3 +111,6 @@ alias emacsd='emacs --daemon'
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
 # source  ~/powerlevel9k/powerlevel9k.zsh-theme
+
+# homebrew proxy
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
