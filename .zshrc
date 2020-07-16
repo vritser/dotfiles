@@ -73,10 +73,14 @@ HISTCONTROL=ignorespace:erasedups
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dirhistory osx git-extras docker zsh-autosuggestions zsh-z)
+plugins=(git dirhistory osx docker zsh-autosuggestions zsh-z git-open)
+
+# manually config z
 # eval "$(lua ~/z.lua --init zsh)"
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -105,12 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi="/usr/local/opt/emacs-plus/bin/emacsclient -c"
+alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
-
+alias go="git-open"
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
-# source  ~/powerlevel9k/powerlevel9k.zsh-theme
 
 # homebrew proxy
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
