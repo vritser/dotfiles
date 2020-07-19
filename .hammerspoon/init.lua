@@ -51,7 +51,7 @@ local key2App = {
    p = {'/System/Applications/Preview.app', 'Chinese', 1},
    n = {'/Applications/DingTalk.app', 'Chinese', 1},
    -- m = {'/Applications/IntelliJ IDEA.app', 'English', 2},
-   m = {'/System/Applications/Music.app', 'English', 1},
+   m = {'/System/Applications/Music.app', 'Chinese', 1},
    q = {'/Applications/QQ.app', 'Chinese', 1},
    w = {'/Applications/WeChat.app', 'Chinese', 1},
 }
