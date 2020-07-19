@@ -37,25 +37,6 @@ hs.hotkey.new(
       end
 end):enable()
 
-hs.hotkey.bind(hyper, "d",
-               function ()
-                  local focusedElement = hs.uielement.focusedElement();
-
-                  if (focusedElement == nil or focusedElement:selectedText() == '' or focusedElement:selectedText() == nil) then
-                     hs.notify.new({title="Capture", informativeText = "No selected text"}):send()
-                     return
-                  end
-
-                  local focusedWindow = window.focusedWindow()
-
-                  local url = string.format("org-protocol://capture?template=p&url=HammerSpoon&title=%s&body=%s",
-                                            focusedWindow:title(),
-                                            focusedElement:selectedText())
-
-                  hs.notify.new({title= "Capture", informativeText = focusedWindow:title() .. "\n" .. focusedElement:selectedText()}):send()
-                  hs.execute(string.format("open '%s'", url))
-end)
-
 -- Init.
 hs.window.animationDuration = 0 -- don't waste time on animation when resize window
 
@@ -65,16 +46,14 @@ local key2App = {
    j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'Chinese', 2},
    k = {'/Applications/Google Chrome.app', 'Chinese', 1},
    l = {'/System/Library/CoreServices/Finder.app', 'English', 1},
-   -- f = {'/Applications/Chromium.app', 'English', 1},
    c = {'/Applications/Visual Studio Code.app', 'Chinese', 2},
-   w = {'/Applications/WeChat.app', 'Chinese', 1},
-   -- d = {'/Applications/Dash.app', 'English', 1},
    s = {'/System/Applications/System Preferences.app', 'English', 1},
    p = {'/System/Applications/Preview.app', 'Chinese', 1},
-   -- b = {'/Applications/MindNode.app', 'Chinese', 1},
    n = {'/Applications/DingTalk.app', 'Chinese', 1},
-   m = {'/Applications/IntelliJ IDEA.app', 'English', 2},
+   -- m = {'/Applications/IntelliJ IDEA.app', 'English', 2},
+   m = {'/System/Applications/Music.app', 'English', 1},
    q = {'/Applications/QQ.app', 'Chinese', 1},
+   w = {'/Applications/WeChat.app', 'Chinese', 1},
 }
 
 -- Show launch application's keystroke.
@@ -175,15 +154,34 @@ end
 
 function emacsclientWatcher(appName, eventType, appObject)
    if (eventType == hs.application.watcher.activated) then
-      print("activated app is ==========>", appName)
       if (appName == "EmacsClient") then
          -- Bring Emacs to Front
          hs.osascript.applescript('tell application "Emacs" to activate')
       end
    end
 end
--- appWatcher = hs.application.watcher.new(emacsclientWatcher)
--- appWatcher:start()
+-- emacsWatcher = hs.application.watcher.new(emacsclientWatcher)
+-- emacsWatcher:start()
+
+hs.hotkey.bind(hyper, "d",
+               function ()
+                  local focusedElement = hs.uielement.focusedElement();
+
+                  if (focusedElement == nil or focusedElement:selectedText() == '' or focusedElement:selectedText() == nil) then
+                     hs.notify.new({title="Capture", informativeText = "No selected text"}):send()
+                     return
+                  end
+
+                  local focusedWindow = window.focusedWindow()
+
+                  local url = string.format("org-protocol://capture?template=p&url=HammerSpoon&title=%s&body=%s",
+                                            focusedWindow:title(),
+                                            focusedElement:selectedText())
+
+                  hs.notify.new({title= "Capture", informativeText = focusedWindow:title() .. "\n" .. focusedElement:selectedText()}):send()
+                  hs.execute(string.format("open '%s'", url))
+end)
+
 
 -- Handle cursor focus and application's screen manage.
 startAppPath = ""
