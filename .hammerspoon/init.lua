@@ -43,7 +43,10 @@ hs.window.animationDuration = 0 -- don't waste time on animation when resize win
 -- Key to launch application.
 local key2App = {
    h = {'/Applications/iTerm.app', 'Chinese', 2},
+   -- emacs-plus
    j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'Chinese', 2},
+   -- native-comp Emacs
+   -- j = {'/Applications/Emacs.app', 'Chinese', 2},
    k = {'/Applications/Google Chrome.app', 'Chinese', 1},
    l = {'/System/Library/CoreServices/Finder.app', 'English', 1},
    c = {'/Applications/Visual Studio Code.app', 'Chinese', 2},
@@ -110,7 +113,7 @@ local function Chinese()
 end
 
 local function English()
-   hs.keycodes.currentSourceID("com.apple.keylayout.Dvorak")
+   -- hs.keycodes.currentSourceID("com.apple.keylayout.Dvorak")
 end
 
 -- Build better app switcher.
@@ -218,6 +221,7 @@ function launchApp(appPath)
       hs.execute("open -a 'Google Chrome' --args '--remote-debugging-port=9222'")
    elseif appPath == "/Applications/Chromium.app" then
       hs.execute("open -a 'Chromium' --args --user-data-dir='/tmp/chrome_dev_test' --disable-web-security")
+   -- elseif appPath == "/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app" then
    elseif appPath == "/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app" then
       hs.execute("open -a /Applications/vi.app")
    else
