@@ -111,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
-alias go="git-open"
+alias gop="git-open"
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
 
