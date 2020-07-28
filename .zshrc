@@ -109,6 +109,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# brew alias
+alias bi="brew install"
+alias bci="brew cask install"
+alias bu="brew uninstall"
+alias bs="brew search"
+
 alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
 alias gop="git-open"
@@ -117,3 +124,6 @@ alias gop="git-open"
 
 # homebrew proxy
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
+# eval $(thefuck --alias)
+# eval $(thefuck --alias --enable-experimental-instant-mode)
