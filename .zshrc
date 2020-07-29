@@ -122,8 +122,5 @@ alias gop="git-open"
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
 
-# homebrew proxy
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
 # eval $(thefuck --alias)
 # eval $(thefuck --alias --enable-experimental-instant-mode)
