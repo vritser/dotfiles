@@ -1,9 +1,10 @@
 #!/bin/sh
 
-cd $HOME && mkdir github && cd github
+mkdir $HOME/github && cd $HOME/github
 git clone https://hub.fastgit.org/vritser/dotfiles.git
 
+dotpath=$HOME/github/dotfiles
 ln -s "$HOME/Library/Mobile Documents/com~apple~CloudDocs/org" $HOME
-ln -s $HOME/github/dotfiles/.hammerspoon $HOME/
-ln -s $HOME/github/dotfiles/.zshrc $HOME/.zshrc
-ln -s $HOME/github/dotfiles/.zshenv $HOME/.zshenv
+ln -s $dotpath/.hammerspoon $HOME/
+ln -s $dotpath/.zshrc $HOME/.zshrc
+ln -s $dotpath/.zshenv $HOME/.zshenv
