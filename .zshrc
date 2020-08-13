@@ -63,7 +63,13 @@ ZSH_THEME="robbyrussell"
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
-HISTCONTROL=ignorespace:erasedups
+# HISTCONTROL=ignorespace:erasedups:ignoredups
+
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
 
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -119,6 +125,16 @@ alias bs="brew search"
 alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
 alias gop="git-open"
+
+if [[ -f ".zshrc.local" ]]; then
+  source ~/.zshrc.local
+fi
+
+if [[ -f ".zsh.ssh" ]]; then
+  source ~/.zsh.ssh
+fi
+
+
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
 
