@@ -12,9 +12,8 @@ ZSH_DISABLE_COMPFIX="true"
 export ZSH=$HOME/.oh-my-zsh
 
 # http proxy
-#export http_proxy=socks5://127.0.0.1:1080
-#export http_proxy=http://127.0.0.1:49658
-#export https_proxy=$http_proxy
+# export http_proxy=socks5://127.0.0.1:1086
+# export https_proxy=$http_proxy
 
 noproxy () {
   unset http_proxy
@@ -121,6 +120,18 @@ alias bi="brew install"
 alias bci="brew cask install"
 alias bu="brew uninstall"
 alias bs="brew search"
+
+alias k="kubectl"
+alias ko="kubectl get po"
+alias ks="kubectl get svc"
+alias kn="kubectl get nodes"
+alias kg="kubectl get ing"
+alias kd="kubectl describe"
+alias klog="kubectl logs"
+alias kp="kubectl proxy"
+alias kc="kubectl create"
+alias ka="kubectl apply"
+alias kr="kubectl delete"
 
 alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
