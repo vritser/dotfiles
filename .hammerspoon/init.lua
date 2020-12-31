@@ -44,16 +44,18 @@ hs.window.animationDuration = 0 -- don't waste time on animation when resize win
 local key2App = {
    h = {'/Applications/iTerm.app', 'Chinese', 2},
    -- emacs-plus
-   j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'Chinese', 2},
+   j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'English', 2},
    -- native-comp Emacs
    -- j = {'/Applications/Emacs.app', 'Chinese', 2},
    k = {'/Applications/Google Chrome.app', 'Chinese', 1},
    l = {'/System/Library/CoreServices/Finder.app', 'English', 1},
    c = {'/Applications/Visual Studio Code.app', 'Chinese', 2},
+   v = {'/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app', 'English', 1},
    s = {'/System/Applications/System Preferences.app', 'English', 1},
    p = {'/System/Applications/Preview.app', 'Chinese', 1},
    n = {'/Applications/DingTalk Lite.app', 'Chinese', 1},
    -- n = {'/Applications/企业微信.app', 'Chinese', 1},
+   a = {'/Applications/Navicat Premium.app', 'English', 2},
    -- m = {'/Applications/IntelliJ IDEA.app', 'English', 2},
    m = {'/System/Applications/Music.app', 'Chinese', 1},
    q = {'/Applications/QQ.app', 'Chinese', 1},
