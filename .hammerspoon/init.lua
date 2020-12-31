@@ -177,13 +177,14 @@ hs.hotkey.bind(hyper, "d",
                   end
 
                   local focusedWindow = window.focusedWindow()
-
-                  local url = string.format("org-protocol://capture?template=p&url=HammerSpoon&title=%s&body=%s",
+                  -- org-protocol://capture?template=p&url=HammerSpoon&title=%s&body=%s
+                  local protocol = "org-protocol://capture:/p/HammerSpoon/%s/%s"
+                  local url = string.format(protocol,
                                             focusedWindow:title(),
                                             focusedElement:selectedText())
 
                   hs.notify.new({title= "Capture", informativeText = focusedWindow:title() .. "\n" .. focusedElement:selectedText()}):send()
-                  hs.execute(string.format("open '%s'", url))
+                  hs.osascript.applescript(string.format('do shell script "/usr/local/bin/emacsclient -n  \'%s\'"\n tell application \"Emacs\" to activate', url))
 end)
 
 
@@ -223,8 +224,8 @@ function launchApp(appPath)
    elseif appPath == "/Applications/Chromium.app" then
       hs.execute("open -a 'Chromium' --args --user-data-dir='/tmp/chrome_dev_test' --disable-web-security")
    -- elseif appPath == "/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app" then
-   elseif appPath == "/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app" then
-      hs.execute("open -a /Applications/vi.app")
+   -- elseif appPath == "/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app" then
+   --    hs.execute("open -a /Applications/vi.app")
    else
       application.launchOrFocus(appPath)
    end
