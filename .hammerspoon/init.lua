@@ -268,7 +268,7 @@ function toggleApplication(app)
       if mainwin then
          if app:isFrontmost() then
             -- Show mouse circle if has focus on target application.
-            drawMouseCircle()
+            -- drawMouseCircle()
 
             setInputMethod = false
          else
@@ -283,6 +283,14 @@ function toggleApplication(app)
             launchApp(appPath)
          end
       end
+   end
+
+   local mouseScreen = hs.mouse.getCurrentScreen()
+   local appScreen = app:focusedWindow():screen()
+
+   if mouseScreen ~= appScreen then
+      local center = hs.geometry.rectMidPoint(appScreen:fullFrame())
+      hs.mouse.setAbsolutePosition(center)
    end
 
    if setInputMethod then
