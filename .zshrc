@@ -11,11 +11,13 @@ ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# http proxy
-# export http_proxy=socks5://127.0.0.1:1086
-# export https_proxy=$http_proxy
-
-noproxy () {
+# Proxy
+openproxy() {
+    export http_proxy=socks5://127.0.0.1:1080
+    export https_proxy=$http_proxy
+    echo "HTTP proxy on"
+}
+closeproxy () {
   unset http_proxy
   unset https_proxy
   echo "HTTP Proxy off"
@@ -78,7 +80,7 @@ setopt HIST_IGNORE_SPACE
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dirhistory osx docker zsh-autosuggestions zsh-z git-open)
+plugins=(git dirhistory macos docker zsh-autosuggestions zsh-z git-open)
 
 # manually config z
 # eval "$(lua ~/z.lua --init zsh)"
@@ -115,12 +117,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# brew alias
+# Homebrew
 alias bi="brew install"
 alias bci="brew cask install"
 alias bu="brew uninstall"
 alias bs="brew search"
 
+# Kubernetes
 alias k="kubectl"
 alias ko="kubectl get po"
 alias ks="kubectl get svc"
@@ -133,9 +136,18 @@ alias kc="kubectl create"
 alias ka="kubectl apply"
 alias kr="kubectl delete"
 
+# Emacs
 alias vi="emacsclient -c -a ''"
 alias emacsd='emacs --daemon'
 alias gop="git-open"
+
+# Visual Studio Code
+alias code="code-insiders"
+
+# NPM
+alias cnpm="npm --registry=http://registry.npm.taobao.org"
+alias npm="npm --registry=https://registry.npmmirror.com"
+# alias pnpm="npm --registry=http://47.94.37.100:8081/repository/npm-group/"
 
 if [[ -f ".zshrc.local" ]]; then
   source ~/.zshrc.local
@@ -145,9 +157,15 @@ if [[ -f ".zsh.ssh" ]]; then
   source ~/.zsh.ssh
 fi
 
-
 # run emacs daemon
 # [[ -z $(ps -C 'emacs --daemon' -o pid=) ]] && emacsd
 
-# eval $(thefuck --alias)
-# eval $(thefuck --alias --enable-experimental-instant-mode)
+eval "$(scalaenv init -)"
+eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# direnv: https://github.com/direnv/direnv
+eval $(direnv hook bash)

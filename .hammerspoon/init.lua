@@ -43,14 +43,11 @@ hs.window.animationDuration = 0 -- don't waste time on animation when resize win
 -- Key to launch application.
 local key2App = {
    h = {'/Applications/iTerm.app', 'Chinese', 2},
-   -- emacs-plus
    j = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app', 'English', 2},
-   -- native-comp Emacs
-   -- j = {'/Applications/Emacs.app', 'Chinese', 2},
    k = {'/Applications/Google Chrome.app', 'Chinese', 1},
    l = {'/System/Library/CoreServices/Finder.app', 'English', 1},
-   c = {'/Applications/Visual Studio Code.app', 'Chinese', 2},
-   v = {'/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app', 'English', 1},
+   c = {'/Applications/Visual Studio Code - Insiders.app', 'Chinese', 2},
+   -- v = {'/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app', 'English', 1},
    s = {'/System/Applications/System Preferences.app', 'English', 1},
    p = {'/System/Applications/Preview.app', 'Chinese', 1},
    n = {'/Applications/DingTalk Lite.app', 'Chinese', 1},
