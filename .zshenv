@@ -10,14 +10,12 @@ export PATH=$PATH:/usr/local/flutter/bin
 export PATH=$PATH:/usr/local/flutter/bin/cache/dart-sdk/bin
 
 # java
-export PATH=/usr/local/opt/openjdk@11/bin:$PATH
-export PATH=$HOME/.jenv/bin:$PATH
-# export JAVA_HOME=/usr/libexec/java_home
+export JAVA_HOME=$HOME/.sdkman/candidates/java/current
+export PATH=$PATH:$JAVA_HOME/bin
 
 # scala
-export SBT_HOME=/usr/local/bin
-export PATH=$SBT_HOME:$PATH
-export PATH=$HOME/.scalaenv/shims:$PATH
+export PATH=$PATH:$HOME/.sdkman/candidates/sbt/current/bin
+export PATH=$PATH:$HOME/.sdkman/candidates/scala/current/bin
 
 # golang
 export GOROOT=/usr/local/Cellar/go/1.13/libexec
